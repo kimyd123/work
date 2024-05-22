@@ -11,14 +11,15 @@
     </head>
 
     <body>
+        <div id="line"></div>
         <header id="header">
             <div class="inner">
                 <a href="#">
-                    <h1>KIM YEONDUCK</h1>
+                    <h1 class="logo">KIM YEONDUCK</h1>
                 </a>
                 <ul class="header_menu">
                     <li class="icon act_close"></li>
-                    <li class="menu-btn">MENU</li>
+                    <li class="menu_btn">MENU</li>
                 </ul>
             </div>
             <div class="menu_gnb">
@@ -43,6 +44,7 @@
         </header>
 
         <section class="main">
+            <div class="main_bg0"></div>
             <div class="inner">
                 <div class="main_bg1">
                     <ul class="wrap">
@@ -62,7 +64,7 @@
                                 <div class="sec_title">WORKS</div>
                                 <div class="content_wrap">
                                     <h3 class="content_title">
-                                        <a href="http://alwlsr112.dothome.co.kr/uniqlo/">UNIQLO</a>
+                                        <a href="http://alwlsr112.dothome.co.kr/uniqlo/" target="_blank">UNIQLO</a>
                                     </h3>
                                     <p>작업기간 5일<br>
                                         참여도 개인 100%<br>
@@ -74,7 +76,7 @@
                                 <div class="sec_title">WORKS</div>
                                 <div class="content_wrap">
                                     <h3 class="content_title">
-                                        <a href="http://alwlsr112.dothome.co.kr/NATIONAL/">NATIONAL GEOGRAPHIC</a>
+                                        <a href="http://alwlsr112.dothome.co.kr/NATIONAL/" target="_blank">NATIONAL GEOGRAPHIC</a>
                                     </h3>
                                     <p>작업기간 3일<br>
                                         참여도 개인 100%<br>
@@ -174,20 +176,20 @@
             </section>
 
             <section id="works" class="works">
-                <section class="works_content1 panel">
+                <section id="work1" class="works_content1 panel">
                     <a href="http://alwlsr112.dothome.co.kr/uniqlo/">
                         <img src="./image/work1_bg.png" alt="work1_BG"></a>
                     <img src="./image/work1_logo.png" alt="work1_logo">
                 </section>
-                <section class="works_content2 panel">
+                <section id="work2" class="works_content2 panel">
                     <img src="./image/work2_bg.png" alt="work2_BG">
                     <img src="./image/work2_logo.png" alt="work2_logo">
                 </section>
             </section>
 
             <section id="skills" class="skills">
-                <section class="skills_content1 panel"></section>
-                <section class="skills_content2 panel"></section>
+                <section id="skill1" class="skills_content1 panel"></section>
+                <section id="skill2" class="skills_content2 panel"></section>
             </section>
 
             <section id="about" class="about panel">
@@ -209,7 +211,11 @@
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-        
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="js/mousewheel.js"></script>
         
             <script src="./js/portfolio.js"></script>
 

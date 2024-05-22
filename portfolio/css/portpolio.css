@@ -9,7 +9,7 @@
             color: #B8B8B8;
             font-family: 'Pretendard';
             font-size: 1rem;
-            overflow-x: hidden;
+            overflow-Y: hidden;
 
         }
         li {
@@ -19,6 +19,8 @@
             color: #B8B8B8;
             text-decoration: none;
         }
+
+
 
         #header {
             width: 100%;
@@ -35,8 +37,45 @@
             z-index: 1000;
             justify-content: space-between;
             margin-top: 34px;
-            /* border: 1px solid red; */
         }
+
+        #header .logo{
+            /* border: 1px solid red; */
+            -webkit-box-reflect: below -8px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2));
+            position: relative;
+
+        }
+
+        #header .logo::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -1px;
+            width: 20%;
+            height: 1px;
+            background: #B8B8B8;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        #header .logo::after{
+            content: '';
+            position: absolute;
+            left: calc(100% - 20%);
+            bottom: -1px;
+            width: 20%;
+            height: 1px;
+            background: #B8B8B8;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #header .logo:hover:before,
+        #header .logo:hover:after
+        {
+            width: 100%;
+            background: white;
+            left: 0;
+        }
+
         #header .inner .header_menu {
             display: flex;
             justify-content: space-between;
@@ -76,7 +115,7 @@
         }
 
         #header .menu_gnb a{
-            display: inline-block;
+            display: block;
             transition: all 0.4s ease-in-out;
             position: relative;
         }
@@ -98,7 +137,7 @@
 
         #header .menu_gnb a:hover:after{
             width: 100%;
-            height: 5%;
+            height: 2%;
         }
 
 
@@ -118,7 +157,7 @@
             height: 0.5rem;
             position: absolute;
             margin-top: 5px;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
         .icon::before{
             border-top: 1px solid #B8B8B8;
@@ -148,9 +187,11 @@
 
         .header_menu:hover .icon.act_close::before{
             left: -40px;
+            border-top: 1px solid white;
         }
         .header_menu:hover .icon.act_close::after{
             left: -50px;
+            border-top: 1px solid white;
         }
 
         #footer {
@@ -193,12 +234,31 @@
             z-index: 500;
         }
 
+        .main .main_bg0{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 300;
+            background: #263B3B;
+        }
         .main .inner .main_bg1 {
             width: 30%;
             height: 100vh;
             background: #222222;
+            position: relative;
+            box-shadow: inset -5px 1px 100px black,
+            0 0 20px #222222;
+        }
 
-
+        #line{
+            width: 30px;
+            height: 1px;
+            background: #B8B8B8;
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
         .main .main_bg1 .wrap {
@@ -209,20 +269,21 @@
             justify-content: end;
             margin-right: 50px;
         }
+
+
         .main .inner .main_bg2_line_out {
             width: 40%;
             height: 1px;
-            background: #B8B8B8;
+            background: #263B3B;
             position: relative;
         }
         .main .inner .main_bg2_line_in {
-            width: 30%;
             height: 1px;
             position: absolute;
             left: 0;
             top: 0;
-            background-color: red;
-            /* animation: main_bg2_ani 5s ease-in-out infinite alternate; */
+            background: #B8B8B8;
+            transition: all 0.5s ease-in-out;
         }
 
         .main .inner .main_bg3 {
@@ -231,6 +292,8 @@
             background: #222222;
             position: relative;
             z-index: 500;
+            box-shadow: inset -5px 1px 100px black,
+            -10px 0 50px #222222;
         }
 
         .main .main_bg3 .wrap {
@@ -264,7 +327,8 @@
         }
 
         .main .main_bg3 .soundbar_in {
-            background-color: red;
+            height: 1px;
+            background: #9A181B;
             width: 50%;
             height: 1px;
             position: absolute;
@@ -273,21 +337,35 @@
             transition: all 0.3s ease-in-out;
         }
         .main .wrap li {
+            width: 9%;
             padding: 0 10px;
+            /* border: 1px solid red; */
         }
         .main .wrap span {
             display: inline-block;
         }
 
-
+        .prev:hover,
+        .next:hover{
+            animation: eani 0.5s ease-in-out infinite alternate;
+        }
 
         .sound_on:hover,
-        .sound_off:hover{
-            animation: sound 0.8s ease-in-out infinite alternate;
+        .sound_off:hover{f
+            animation: eani 0.5s ease-in-out infinite alternate;
         }
+
+        .main a{
+            transition: all 0.3s ease-in-out;
+        }
+        .main a:hover{
+            color: white;
+        }
+
+
     
 
-        @keyframes sound {
+        @keyframes eani {
             0%{
                 transform: translateY(0px);
             }100%{
@@ -296,51 +374,76 @@
         }
         /* 가로이동 */
         .container {
-            height: 100vh;
+            width: 700%;
             display: flex;
             white-space: nowrap;
         }
-        .panel {
-            background-size: cover;
-            min-width: 100vw;
-            height: 100vh;
-            position: relative;
-        }
-
         .works{
             display: flex;
         }
         .skills{
             display: flex;
         } 
-
-        .skills_content1 {
+        .panel {
+            background-size: cover;
             height: 100vh;
-            background: url("../image/skills_bg.png") center top;
+            position: relative;
+        }
+
+        .home{
+            width: 100vw;
+        }
+
+        .works_content1{
+            width: 100vw;
+        }
+        .works_content2{
+            width: 100vw;
+        }
+        .skills_content1 {
+            width: 100vw;
+            height: 100vh;
+            background: url("../image/skills_bg.png") center top no-repeat;
+            background-size: cover;
         }
 
         .skills_content2 {
+            width: 100vw;
             height: 100vh;
-            background: url("../image/skills_bg.png") center top;
+            background: url("../image/skills_bg2.png") center top no-repeat;
+            background-size: cover;
             position: relative;
         }
 
         .about_content{
+            width: 100vw;
             height: 100vh;
-            background: url("../image/about_bg.png") center top;
+            background: url("../image/about_bg.png") center top no-repeat;
+            background-size: cover;
             position: relative;
         }
 
         .contact_content{
+            width: 100vw;
             height: 100vh;
-            background: url("../image/contact_bg.png") center top;
+            background: url("../image/contact_bg.png") center top no-repeat;
+            background-size: cover;
             position: relative;
         }
         
         .container img[src*='bg.png']{
-            width: 110%;
+            width: 100%;
             height: 100%;
             object-fit: cover;
+            animation: bg_scale 5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes bg_scale {
+            0%{
+                transform: scale(1);
+            }100%{
+                transform: scale(1.03);
+            }
         }
 
         .works .works_content1 img:nth-child(2){
@@ -376,22 +479,35 @@
             z-index: 500;
             width: 70vw;
         }
+        .wrap li {
+            position: relative;
+            z-index: 700;
+        }
+
         .sec_wrap {
             display: flex;
-            display: none;
-        }
-        .sec_wrap:nth-child(1){
-            display : flex;
+            opacity: 0;
+            position: absolute;
+            left: 6%;
+            top: 0;
+            width: 85%;
+            transition: all 0.8s ease-in-out ;
         }
         .sec_wrap .content_title {
             font-size: 1.8rem;
-        }
 
+        }
+        .content_title{
+            position: relative;
+            z-index: 1000;
+            /* border: 1px solid red; */
+        }
         .sec_wrap .content_wrap{
-            margin-top: 30px;
+            margin: 30px 0 0 80px;
             padding-left: 5px;
             text-shadow: 2px 2px 4px black;
-            width: 70%;
+            width: 90%;
+            /* border: 1px solid red; */
         }
         
         .sec_wrap p {
@@ -403,9 +519,45 @@
             width: 20%;
             font-size: 2rem;
             font-weight: bold;
-            color: white;
+            color: #B8B8B8;
             text-align: center;
+            text-shadow: 3px 3px 0px black,
+            6px 6px 0px rgb(64, 64, 64);
+        }
+
+        .sec_wrap a{
             /* border: 1px solid red; */
+            position: relative;
+            display: inline-block;
+            line-height: 40px;
+        }
+
+        .sec_wrap a::before,
+        .sec_wrap a::after{
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+        .sec_wrap a::after{
+            right: 0%;
+            bottom: 0;
+            background:#B8B8B8;
+        }
+        .sec_wrap a::before{
+            left: 0%;
+            top: 0;
+            background:#9A181B;
+        }
+
+        .sec_wrap .content_title:hover a::after{
+            right: calc(100% - 30px);
+            background:#9A181B;
+        }
+        .sec_wrap .content_title:hover a:before{
+            left: calc(100% - 30px);
+            background:white;
         }
 
         .content_hash{
